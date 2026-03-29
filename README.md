@@ -5,7 +5,7 @@ Your new deep sea diving AI assistant.
 ## Details
 
 - This AI solves the issue of underwater ambiguity by assisting divers in identifying marine species and alerting for possible threat, all in real-time situations.
-- { Did you use any interesting libraries or services? }
+- 
     --> https://docs.fishial.ai/api/specieslist#ai-classification-model-v
         -  We used this trustable fish database with over 600+ species of marine animals to include into our SmartDive              AI application.
            Using Google AI studio, we were able to implement the database into the code through a prompt. 
