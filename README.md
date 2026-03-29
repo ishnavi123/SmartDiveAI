@@ -20,12 +20,12 @@ Challenges:
 
 ## Set Up Instructions
 
-Install Node.js for your OS (Windows, Mac, Linux)
-Install Android studio for your OS (windows, Mac, Linux, ChromeOS)
-Install "Capacitor"
-Put "Capacitor" into the project
-Run "npm run build" and "npx cap sync android" in the terminal
-Upload code to your Android device
+1. Install Node.js for your OS (Windows, Mac, Linux)
+2. Install Android studio for your OS (windows, Mac, Linux, ChromeOS)
+3. Install "Capacitor"
+4. Put "Capacitor" into the project
+5. Run "npm run build" and "npx cap sync android" in the terminal
+6. Upload code to your Android device
 
 ## Screenshots
 
