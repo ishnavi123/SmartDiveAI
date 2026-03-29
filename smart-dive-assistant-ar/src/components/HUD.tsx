@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AlertLevel } from '../types';
@@ -7,6 +9,7 @@ interface HUDProps {
   species: string | null;
   warning: string | null;
   alertLevel: AlertLevel;
+  isFadingOut: boolean;
   onDismissAlert: () => void;
   onShowInfo: () => void;
   safetySteps: string[] | null;
@@ -19,6 +22,7 @@ export const HUD: React.FC<HUDProps> = ({
   species, 
   warning, 
   alertLevel, 
+  isFadingOut,
   onDismissAlert, 
   onShowInfo,
   safetySteps,
@@ -39,13 +43,13 @@ export const HUD: React.FC<HUDProps> = ({
     <div className="absolute inset-0 pointer-events-none font-mono overflow-hidden">
       {/* Screen Border for Danger */}
       <AnimatePresence>
-        {alertLevel === 'danger' && (
+        {((alertLevel === 'danger' && warning) || isFadingOut) && (
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 0.5, 0] }}
+            animate={{ opacity: [0, isFadingOut ? 0.2 : 0.5, 0] }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, repeat: Infinity }}
-            className="absolute inset-0 border-[20px] border-red-600 z-50"
+            className={`absolute inset-0 border-[20px] ${isFadingOut ? 'border-red-600/30' : 'border-red-600'} z-50`}
           />
         )}
       </AnimatePresence>
@@ -115,7 +119,7 @@ export const HUD: React.FC<HUDProps> = ({
             className="absolute bottom-20 left-1/2 -translate-x-1/2 w-full max-w-xl px-10"
           >
             <motion.div
-              animate={alertLevel === 'danger' ? { scale: [1, 1.02, 1] } : {}}
+              animate={alertLevel === 'danger' ? { scale: [1, 1.05, 1] } : {}}
               transition={{ duration: 0.3, repeat: Infinity }}
               className="bg-black/90 border-2 p-6 rounded-xl shadow-2xl relative"
               style={{ borderColor: themeColor }}
