@@ -112,7 +112,7 @@ export default function App() {
 
       const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
       const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-1.5-flash",
         contents: {
           parts: [
             { text: "Identify the fish or sea creature in this image. Return ONLY a JSON object with 'name' (string) and 'isDangerous' (boolean). If no fish is found, return { 'name': 'None', 'isDangerous': false }." },
